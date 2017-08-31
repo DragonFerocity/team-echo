@@ -26,6 +26,9 @@ we need to add a new bool to check if we have already
 jumped and add an if else to the jump function to allow
 for the second jump input to be caught.
 
+NOTE: This version allows for wall jumping (in a sense).
+If you are attached to a sticky wall you can jump off of that wall.
+
 SAMPLE CODE (File used: PlatformerCharacter2D.cs)
 //In the class variables add the following:
 private bool m_DoubleJump = false;  // If true, the player has already jumped once without touching the ground
@@ -42,7 +45,7 @@ if (m_Grounded && jump && m_Anim.GetBool("Ground") && (m_DoubleJump == false))
         m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 }
 //Allow for a second jump
-else if((m_DoubleJump == true) && !m_Grounded && jump)
+else if((m_DoubleJump == true) && jump)
 {
 	m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         m_DoubleJump = false;
