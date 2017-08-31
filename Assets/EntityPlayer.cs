@@ -16,9 +16,9 @@ public class EntityPlayer : Entity {
 
   private void move()
   {
-    var x = Input.GetAxis("Horizontal") * Time.deltaTime * 15.0f; 
-    var y = Input.GetAxis("Vertical") * Time.deltaTime * 15.0f;
+    var x = Input.GetAxis("Horizontal") * Time.deltaTime * walkSpeed;
+    var y = Input.GetAxis("Vertical") * Time.deltaTime * walkSpeed;
 
-    transform.Translate(x, y, 0);
+    moveTo(x, y);
   }
 }
