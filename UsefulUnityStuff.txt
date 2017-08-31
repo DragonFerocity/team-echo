@@ -1,0 +1,49 @@
+Useful unity stuff
+
+HOLDING DOWN BUTTONS
+First, you need to use a GetButtonDown
+This allows you to detect when the button is pressed
+Second, you need to use a GetButtonUp
+This allows you to detect when the buttonis released
+Using these in sequence allows you to perform the
+action only when the button is released.
+This can be used for things like charged attacks,
+jumps, etc.
+
+SAMPLE CODE (File used: Platformer2DUserControl.cs)
+if (!m_Jump)
+            {
+                // Read the jump input in Update so button presses aren't missed.
+               m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                // Read when the jump input is released.
+                m_Jump = CrossPlatformInputManager.GetButtonUp("Jump");
+            }
+
+BASIC DOUBLE JUMPING
+The standard controller only allows for a single jump, and only
+when touching the ground. To allow for double jumping
+we need to add a new bool to check if we have already
+jumped and add an if else to the jump function to allow
+for the second jump input to be caught.
+
+SAMPLE CODE (File used: PlatformerCharacter2D.cs)
+//In the class variables add the following:
+private bool m_DoubleJump = false;  // If true, the player has already jumped once without touching the ground
+
+//In the move function under the jump section:
+// If the player should jump...
+if (m_Grounded && jump && m_Anim.GetBool("Ground") && (m_DoubleJump == false))
+{
+	// Note the first jump is taken
+        m_DoubleJump = true;
+        // Add a vertical force to the player.
+        m_Grounded = false;
+        m_Anim.SetBool("Ground", false);
+        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+}
+//Allow for a second jump
+else if((m_DoubleJump == true) && !m_Grounded && jump)
+{
+	m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+        m_DoubleJump = false;
+}
