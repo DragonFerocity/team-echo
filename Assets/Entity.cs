@@ -4,8 +4,14 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-  protected float walkSpeed = 15f;
-  protected static int health = 200; //This is just some number I put in
+  protected abstract float walkSpeed {
+    get;
+    set;
+  }
+  protected abstract int maxHealth {
+    get;
+    set;
+  }
 
   public abstract void Start();
   public abstract void Update();
@@ -18,5 +24,5 @@ public abstract class Entity : MonoBehaviour
     transform.Translate(x, y, 0);
   }
 
-  protected void 
+  protected abstract void attack();
 }

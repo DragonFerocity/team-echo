@@ -3,6 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EntityPlayer : Entity {
+  protected override int maxHealth {
+    get
+    {
+      return 200;
+    }
+    set
+    {
+      this.maxHealth = value;
+    }
+  }
+  protected override float walkSpeed
+  {
+    get
+    {
+      return 15f;
+    }
+    set
+    {
+      this.walkSpeed = value;
+    }
+  }
 
 	// Use this for initialization
 	public override void Start () {
@@ -20,5 +41,10 @@ public class EntityPlayer : Entity {
     var y = Input.GetAxis("Vertical") * Time.deltaTime * walkSpeed;
 
     moveTo(x, y);
+  }
+
+  protected override void attack()
+  {
+    //Attack code here!
   }
 }
