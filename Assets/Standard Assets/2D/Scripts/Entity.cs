@@ -13,7 +13,7 @@ namespace Echo.Entity
     protected abstract void Start();
     protected abstract void Update();
     protected abstract void FixedUpdate();
-    protected abstract void jump();
+    protected abstract void Jump();
     protected abstract void attack();
   }
 }

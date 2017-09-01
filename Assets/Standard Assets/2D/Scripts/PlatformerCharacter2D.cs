@@ -5,8 +5,8 @@ namespace Echo.Entity
 {
   public class PlatformerCharacter2D : Entity
   {
-    [SerializeField] private new int m_MaxHealth = 200;
-    [SerializeField] private new float m_WalkSpeed = 10f;                    // The fastest the player can travel in the x axis.
+    [SerializeField] protected new int m_MaxHealth = 200;
+    [SerializeField] protected new float m_WalkSpeed = 10f;                    // The fastest the player can travel in the x axis.
     [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
@@ -21,6 +21,8 @@ namespace Echo.Entity
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private bool m_DoubleJump = false;  // If true, the player has already jumped once without touching the ground
+    private short m_DoubleJumpWait = 0;
+    private System.Diagnostics.Stopwatch m_DoubleJumpWaitTimer = new System.Diagnostics.Stopwatch();
 
     protected override void Awake()
     {
@@ -44,14 +46,17 @@ namespace Echo.Entity
     protected override void FixedUpdate()
     {
       m_Grounded = false;
-
+      m_MaxHealth = 200;
       // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
       // This can be done using layers instead but Sample Assets will not overwrite your project settings.
       Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
       for (int i = 0; i < colliders.Length; i++)
       {
         if (colliders[i].gameObject != gameObject)
+        {
           m_Grounded = true;
+          this.m_MaxHealth = 500;
+        }
       }
       m_Anim.SetBool("Ground", m_Grounded);
 
@@ -101,26 +106,37 @@ namespace Echo.Entity
         }
       }
       // If the player should jump...
-      if (m_Grounded && jump && m_Anim.GetBool("Ground") && (m_DoubleJump == false))
+      if (m_Grounded && jump && m_Anim.GetBool("Ground"))
       {
         // Note the first jump is taken
         m_DoubleJump = true;
         // Add a vertical force to the player.
         m_Grounded = false;
-        m_Anim.SetBool("Ground", false);
-        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+        Jump();
+        m_DoubleJumpWaitTimer.Start();
       }
       //Allow for a second jump
-      else if ((m_DoubleJump == true) && jump)
+      else if (m_DoubleJump && m_DoubleJumpWaitTimer.ElapsedMilliseconds >= 300 && jump && !m_Grounded)
       {
-        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+        m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+        JumpHalf();
         m_DoubleJump = false;
+        m_DoubleJumpWait = 0;
+        m_DoubleJumpWaitTimer.Stop();
+        m_DoubleJumpWaitTimer.Reset();
       }
     }
 
-    protected override void jump()
+    protected override void Jump()
     {
-      //throw new NotImplementedException();
+      m_Anim.SetBool("Ground", false);
+      m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+    }
+
+    protected void JumpHalf()
+    {
+      m_Anim.SetBool("Ground", false);
+      m_Rigidbody2D.AddForce(new Vector2(0f, 2f / 3 * m_JumpForce - m_Rigidbody2D.velocity.y));
     }
 
     protected override void attack()
