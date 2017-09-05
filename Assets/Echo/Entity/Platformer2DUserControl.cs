@@ -4,16 +4,16 @@ using UnityStandardAssets.CrossPlatformInput;
 
 namespace Echo.Entity
 {
-  [RequireComponent(typeof(PlatformerCharacter2D))]
+  [RequireComponent(typeof(PlayerEntity))]
   public class Platformer2DUserControl : MonoBehaviour
   {
-    private PlatformerCharacter2D m_Character;
+    private PlayerEntity m_Character;
     private bool m_Jump;
 
 
     private void Awake()
     {
-      m_Character = GetComponent<PlatformerCharacter2D>();
+      m_Character = GetComponent<PlayerEntity>();
     }
 
 
