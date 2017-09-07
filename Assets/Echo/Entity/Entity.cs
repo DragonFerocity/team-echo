@@ -14,6 +14,7 @@ namespace Echo.Entity
     [Range(0, 1)] [SerializeField] protected float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [SerializeField] protected float m_WalkSpeed = 10f;                    // The fastest the player can travel in the x axis.
 
+    const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     protected Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
     protected Rigidbody2D m_Rigidbody2D;
     protected Animator m_Anim; // Reference to the player's animator component.
@@ -75,9 +76,26 @@ namespace Echo.Entity
       m_CeilingCheck = transform.Find("CeilingCheck");
     }
     public abstract void Start();
-    public abstract void FixedUpdate();
+    public void FixedUpdate()
+    {
+      m_Grounded = false;
+      // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+      // This can be done using layers instead but Sample Assets will not overwrite your project settings.
+      Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+      for (int i = 0; i < colliders.Length; i++)
+      {
+        if (colliders[i].gameObject != gameObject)
+        {
+          m_Grounded = true;
+        }
+      }
+      m_Anim.SetBool("Ground", m_Grounded);
 
-    protected void Move(float move, bool _crouch, bool jump)
+      // Set the vertical animation
+      m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+    }
+
+    public void Move(float move, bool _crouch, bool jump)
     {
       // If crouching, check to see if the character can stand up
       if (!_crouch && m_Anim.GetBool("Crouch"))
