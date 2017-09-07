@@ -22,7 +22,7 @@ namespace Echo.Entity
 
     protected bool m_Grounded;            // Whether or not the player is grounded.
     protected bool m_FacingRight = true;  // For determining which way the player is currently facing.
-    [Range(0, 30)] [SerializeField] protected float m_JumpAccel = 11; //Acceleration of the object in m/s^2
+    [Range(0, 5000)] [SerializeField] protected float m_JumpForce = 800; //Acceleration of the object in m/s^2
     [Range(10, 200)] [SerializeField] protected int m_Mass = 70; //Mass of the object in kg
 
     public bool crouch
@@ -69,6 +69,7 @@ namespace Echo.Entity
     {
       // Setting up references.
       m_Rigidbody2D = GetComponent<Rigidbody2D>();
+      //m_Rigidbody2D.mass = m_Mass;
       m_Anim = GetComponent<Animator>();
       m_GroundCheck = transform.Find("GroundCheck");
       m_CeilingCheck = transform.Find("CeilingCheck");
@@ -89,7 +90,7 @@ namespace Echo.Entity
       }
 
       // Set whether or not the character is crouching in the animator
-      m_Anim.SetBool("Crouch", _crouch);
+      this.crouch = _crouch;
 
       //only control the player if grounded or airControl is turned on
       if (m_Grounded || m_AirControl)
@@ -166,7 +167,7 @@ namespace Echo.Entity
     public void Jump(float multiplier = 1)
     {
       m_Anim.SetBool("Ground", false);
-      m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpAccel * multiplier * m_Mass));
+      m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * multiplier));
     }
 
     public virtual void Flip()
