@@ -38,11 +38,17 @@ namespace Echo.Entity
     {
       base.Move(move, crouch, jump);
 
+      //Reset air jump if player touches ground
+      if(m_Grounded)
+       {
+        m_DoubleJump = true;
+       }
+
       // If the player should jump...
       if (m_Grounded && jump && m_Anim.GetBool("Ground"))
       {
         // Note the first jump is taken
-        m_DoubleJump = true;
+       // m_DoubleJump = true;
         // Add a vertical force to the player.
         m_Grounded = false;
         Jump();
