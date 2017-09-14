@@ -64,7 +64,7 @@ namespace Echo.Entity
       }
     }
 
-    public override void attack()
+    public override void Attack()
     {
       //throw new NotImplementedException();
     }
