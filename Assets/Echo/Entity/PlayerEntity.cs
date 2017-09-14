@@ -5,8 +5,6 @@ namespace Echo.Entity
 {
   public class PlayerEntity : Entity
   {
-    [SerializeField] protected new int m_MaxHealth = 200;
-    [SerializeField] protected new float m_WalkSpeed = 10f;                    // The fastest the player can travel in the x axis.
     //[SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
 
     private bool m_DoubleJump = false;  // If true, the player has already jumped once without touching the ground
@@ -66,7 +64,7 @@ namespace Echo.Entity
       }
     }
 
-    public override void attack()
+    public override void Attack()
     {
       //throw new NotImplementedException();
     }

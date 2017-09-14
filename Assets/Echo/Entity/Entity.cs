@@ -12,7 +12,8 @@ namespace Echo.Entity
     [SerializeField] protected LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
     [SerializeField] protected bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
     [Range(0, 1)] [SerializeField] protected float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
-    [SerializeField] protected float m_WalkSpeed = 10f;                    // The fastest the player can travel in the x axis.
+    [SerializeField] public float m_RunSpeed = 10f;
+    [SerializeField] public float m_WalkSpeed = 5f;
 
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     protected Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
@@ -120,7 +121,7 @@ namespace Echo.Entity
         m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
         // Move the character
-        m_Rigidbody2D.velocity = new Vector2(move * m_WalkSpeed, m_Rigidbody2D.velocity.y);
+        m_Rigidbody2D.velocity = new Vector2(move, m_Rigidbody2D.velocity.y);
 
         // If the input is moving the player right and the player is facing left...
         if (move > 0 && !m_FacingRight)
@@ -139,11 +140,11 @@ namespace Echo.Entity
 
     public void moveLeft()
     {
-      m_Rigidbody2D.velocity = new Vector2(-m_WalkSpeed, m_Rigidbody2D.velocity.y);
+      m_Rigidbody2D.velocity = new Vector2(-m_RunSpeed, m_Rigidbody2D.velocity.y);
     }
     public void moveRight()
     {
-      m_Rigidbody2D.velocity = new Vector2(m_WalkSpeed, m_Rigidbody2D.velocity.y);
+      m_Rigidbody2D.velocity = new Vector2(m_RunSpeed, m_Rigidbody2D.velocity.y);
     }
 
     public Direction getDirectionToEntity(Entity otherEntity)
@@ -153,14 +154,27 @@ namespace Echo.Entity
 
       if (otherEntityLocation.y > thisLocation.y - 275)
         return Direction.UP;
-      else if (otherEntityLocation.y > thisLocation.x + 275)
+      else if (otherEntityLocation.x > thisLocation.x + 275)
         return Direction.RIGHT;
       else if (otherEntityLocation.y > thisLocation.y + 275)
         return Direction.DOWN;
-      else if (otherEntityLocation.y > thisLocation.x - 275)
+      else if (otherEntityLocation.x > thisLocation.x - 275)
         return Direction.LEFT;
       else
         return Direction.NULL;
+    }
+
+    public SByte getHorizontalDirectionToEntity(Entity otherEntity)
+    {
+      Vector2 otherEntityLocation = otherEntity.m_Rigidbody2D.position;
+      Vector2 thisLocation = m_Rigidbody2D.position;
+
+      if (otherEntityLocation.x > thisLocation.x)
+        return 1;
+      else if (otherEntityLocation.x < thisLocation.x)
+        return -1;
+      else
+        return 0;
     }
 
     public Vector2 getDistanceToEntity(Entity otherEntity)
@@ -175,7 +189,7 @@ namespace Echo.Entity
       return getDistanceToEntity(otherEntity).magnitude;
     }
 
-    public abstract void attack();
+    public abstract void Attack();
 
     public int GiveMillionDollars()
     {

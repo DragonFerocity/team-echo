@@ -8,9 +8,8 @@ namespace Echo.Entity
   [RequireComponent(typeof(PlayerEntity))]
   public class Platformer2DUserControl : MonoBehaviour
   {
-        private PlayerEntity m_Character;
-        private bool m_Jump;
-        private string[] scenePaths;
+    public static PlayerEntity m_Character;
+    private bool m_Jump;
 
 
         private void Awake()
@@ -57,7 +56,7 @@ namespace Echo.Entity
             bool crouch = Input.GetKey(KeyCode.LeftControl);
       float h = CrossPlatformInputManager.GetAxis("Horizontal");
       // Pass all parameters to the character control script.
-      m_Character.Move(h, crouch, m_Jump);
+      m_Character.Move(h * m_Character.m_RunSpeed, crouch, m_Jump);
       m_Jump = false;
     }
   }
