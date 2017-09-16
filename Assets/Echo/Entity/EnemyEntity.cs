@@ -14,7 +14,7 @@ namespace Echo.Entity
     public override void Awake()
     {
       base.Awake();
-      Move(0, false, false);
+      Move(0, false, false, false);
       PreviousState = CurrentState;
       CurrentState = Behaviors.IDLE;
     }
@@ -65,7 +65,7 @@ namespace Echo.Entity
 
     public virtual void MoveToPlayer()
     {
-      this.Move(this.getHorizontalDirectionToEntity(Platformer2DUserControl.m_Character) * m_RunSpeed, false, false);
+      this.Move(this.getHorizontalDirectionToEntity(Platformer2DUserControl.m_Character) * m_RunSpeed, false, false, false);
     }
     public override void Attack()
     {
@@ -74,13 +74,9 @@ namespace Echo.Entity
     public virtual void Idle()
     {
       if (this.facing == Direction.RIGHT)
-      {
-        this.Move(this.m_WalkSpeed, false, false, true);
-      }
+        this.Move(this.m_WalkSpeed, false, false, false, true);
       else if (this.facing == Direction.LEFT)
-      {
-        this.Move(-this.m_WalkSpeed, false, false, true);
-      }
+        this.Move(-this.m_WalkSpeed, false, false, false, true);
     }
 
     public Behaviors CurrentState = Behaviors.NULL;
