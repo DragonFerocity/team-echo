@@ -1751,6 +1751,7 @@ MonoBehaviour:
   m_RunSpeed: 10
   m_WalkSpeed: 10
   m_JumpForce: 800
+  m_DashForce: 2500
   m_Mass: 70
   m_WalkSpeed: 10
   m_RunSpeed: 6
@@ -2307,6 +2308,7 @@ MonoBehaviour:
   m_RunSpeed: 10
   m_WalkSpeed: 10
   m_JumpForce: 800
+  m_DashForce: 2500
   m_Mass: 70
   m_WalkSpeed: 10
   m_RunSpeed: 6
@@ -2335,6 +2337,7 @@ MonoBehaviour:
   m_RunSpeed: 10
   m_WalkSpeed: 10
   m_JumpForce: 800
+  m_DashForce: 2500
   m_Mass: 70
 --- !u!114 &1535535152
 MonoBehaviour:

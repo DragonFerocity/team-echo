@@ -11,6 +11,7 @@ namespace Echo.Entity
         public static PlayerEntity m_Character;
         private bool m_Jump;
         private bool dashRight;
+        private bool dashLeft;
 
 
         private void Awake()
@@ -54,10 +55,11 @@ namespace Echo.Entity
     {
       // Read the inputs.
       bool crouch = Input.GetKey(KeyCode.LeftControl);
-      dashRight = Input.GetKey(KeyCode.E);
+      dashRight = CrossPlatformInputManager.GetButtonDown("DashRight");/*Input.GetKey(KeyCode.E);*/
+      dashLeft = CrossPlatformInputManager.GetButtonDown("DashLeft");
       float h = CrossPlatformInputManager.GetAxis("Horizontal");
       // Pass all parameters to the character control script.
-      m_Character.Move(h * m_Character.m_RunSpeed, crouch, m_Jump, dashRight);
+      m_Character.Move(h * m_Character.m_RunSpeed, crouch, m_Jump, dashRight, dashLeft);
       m_Jump = false;
     }
   }

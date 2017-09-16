@@ -12,7 +12,8 @@ namespace Echo.Entity
     private short m_DoubleJumpWait = 0;
     private System.Diagnostics.Stopwatch m_DoubleJumpWaitTimer = new System.Diagnostics.Stopwatch();
 
-        private bool m_CanDash = true;
+    private bool m_DashingRight = false;
+    private bool m_DashingLeft = false;
     private System.Diagnostics.Stopwatch m_DashWaitTimer = new System.Diagnostics.Stopwatch();
 
         public new void Awake()
@@ -36,7 +37,7 @@ namespace Echo.Entity
     }
 
 
-    public new void Move(float move, bool crouch, bool jump, bool dash_right)
+    public new void Move(float move, bool crouch, bool jump, bool dash_right, bool dash_left)
     {
       base.Move(move, crouch, jump, dash_right);
 
@@ -46,17 +47,26 @@ namespace Echo.Entity
         m_DoubleJump = true;
        }
 
+      //Right dash handling
       //Reset dash if it has been 150 ms since last dash
-      if (!m_CanDash && m_DashWaitTimer.ElapsedMilliseconds <= 150)
+      if (m_DashingRight && m_DashWaitTimer.ElapsedMilliseconds <= 150)
       {
                 m_Rigidbody2D.velocity = new Vector2(25f, 0);
       }
-      else if (m_DashWaitTimer.ElapsedMilliseconds >= 600)
+      else if (m_DashingLeft && m_DashWaitTimer.ElapsedMilliseconds <= 150)
       {
-                m_CanDash = true;
+                m_Rigidbody2D.velocity = new Vector2(-25f, 0);
+      }
+      else if ((m_DashWaitTimer.ElapsedMilliseconds >= 450) || m_Grounded)
+      {
+                m_DashingRight = false;
+                m_DashingLeft = false;
                 m_DashWaitTimer.Stop();
                 m_DashWaitTimer.Reset();
       }
+
+
+
 
       // If the player should jump...
       if (m_Grounded && jump && m_Anim.GetBool("Ground"))
@@ -87,13 +97,17 @@ namespace Echo.Entity
       }
 
       // If the player should dash...
-      if(dash_right && m_CanDash)
+      if(dash_right && !m_DashingRight && !m_DashingLeft)
       {
-        m_CanDash = false;
+        m_DashingRight = true;
         m_DashWaitTimer.Start();
-        //DashRight();
       }
-    }
+      if (dash_left && !m_DashingRight && !m_DashingLeft)
+      {
+        m_DashingLeft = true;
+        m_DashWaitTimer.Start();
+      }
+        }
 
     public override void Attack()
     {
