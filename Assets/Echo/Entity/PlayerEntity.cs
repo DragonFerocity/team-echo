@@ -47,11 +47,15 @@ namespace Echo.Entity
        }
 
       //Reset dash if it has been 150 ms since last dash
-      if (m_DashWaitTimer.ElapsedMilliseconds >= 150)
+      if (!m_CanDash && m_DashWaitTimer.ElapsedMilliseconds <= 150)
       {
-         m_CanDash = true;
-         m_DashWaitTimer.Stop();
-         m_DashWaitTimer.Reset();
+                m_Rigidbody2D.velocity = new Vector2(25f, 0);
+      }
+      else if (m_DashWaitTimer.ElapsedMilliseconds >= 600)
+      {
+                m_CanDash = true;
+                m_DashWaitTimer.Stop();
+                m_DashWaitTimer.Reset();
       }
 
       // If the player should jump...
@@ -87,8 +91,7 @@ namespace Echo.Entity
       {
         m_CanDash = false;
         m_DashWaitTimer.Start();
-        DashRight();
-                Debug.Log("Hey wait a sec");
+        //DashRight();
       }
     }
 

@@ -28,6 +28,7 @@ namespace Echo.Entity
                 // Read when the jump input is released.
                 //m_Jump = CrossPlatformInputManager.GetButtonUp("Jump");
             }
+            
             /*
             if (CrossPlatformInputManager.GetButton("Main Menu") & UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "DefaultAssets")
             {
@@ -44,21 +45,16 @@ namespace Echo.Entity
                 //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu.unity", UnityEngine.SceneManagement.LoadSceneMode.Additive);
             }
             */
-            if (!dashRight)
-            {
-                dashRight = CrossPlatformInputManager.GetButtonDown("DashRight");
-            }
+
         }
         
 
 
     private void FixedUpdate()
     {
-
-
-
-            // Read the inputs.
-            bool crouch = Input.GetKey(KeyCode.LeftControl);
+      // Read the inputs.
+      bool crouch = Input.GetKey(KeyCode.LeftControl);
+      dashRight = Input.GetKey(KeyCode.E);
       float h = CrossPlatformInputManager.GetAxis("Horizontal");
       // Pass all parameters to the character control script.
       m_Character.Move(h * m_Character.m_RunSpeed, crouch, m_Jump, dashRight);
