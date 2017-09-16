@@ -96,8 +96,10 @@ namespace Echo.Entity
       m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
     }
 
-    public void Move(float move, bool _crouch, bool jump)
+    public void Move(float move, bool _crouch, bool jump, bool walk = false)
     {
+      if (walk)
+        m_Anim.speed = 0.5f;
       // If crouching, check to see if the character can stand up
       if (!_crouch && m_Anim.GetBool("Crouch"))
       {

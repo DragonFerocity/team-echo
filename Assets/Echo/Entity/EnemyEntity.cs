@@ -8,7 +8,7 @@ namespace Echo.Entity
 {
   public class EnemyEntity : Entity
   {
-    public new float m_WalkSpeed = 3f;
+    public new float m_WalkSpeed = 1f;
     public new float m_RunSpeed = 6f;
     private System.Diagnostics.Stopwatch IdleStopWatch = new System.Diagnostics.Stopwatch();
     public override void Awake()
@@ -31,13 +31,15 @@ namespace Echo.Entity
         case Behaviors.IDLE:
           PreviousState = CurrentState;
           CurrentState = Behaviors.IDLE;
-          if (!IdleStopWatch.IsRunning)
-            Idle();
-          else if (IdleStopWatch.ElapsedMilliseconds >= 1000)
+          Idle();
+          if (IdleStopWatch.ElapsedMilliseconds >= 2000)
           {
             this.Flip();
-            Idle();
+            IdleStopWatch.Reset();
+            IdleStopWatch.Start();
           }
+          else if (!IdleStopWatch.IsRunning)
+            IdleStopWatch.Start();
           if (this.getAbsoluteDistanceToEntity(Platformer2DUserControl.m_Character) < 2)
             CurrentState = Behaviors.MOVE_TO_PLAYER;
 
@@ -71,12 +73,14 @@ namespace Echo.Entity
     }
     public virtual void Idle()
     {
-      IdleStopWatch.Reset();
-      IdleStopWatch.Start();
       if (this.facing == Direction.RIGHT)
-        this.Move(this.m_WalkSpeed, false, false);
+      {
+        this.Move(this.m_WalkSpeed, false, false, true);
+      }
       else if (this.facing == Direction.LEFT)
-        this.Move(-this.m_WalkSpeed, false, false);
+      {
+        this.Move(-this.m_WalkSpeed, false, false, true);
+      }
     }
 
     public Behaviors CurrentState = Behaviors.NULL;
