@@ -12,10 +12,13 @@ namespace Echo.Entity
     private short m_DoubleJumpWait = 0;
     private System.Diagnostics.Stopwatch m_DoubleJumpWaitTimer = new System.Diagnostics.Stopwatch();
 
-    public new void Awake()
+        private bool m_CanDash = true;
+    private System.Diagnostics.Stopwatch m_DashWaitTimer = new System.Diagnostics.Stopwatch();
+
+        public new void Awake()
     {
       base.Awake();
-    }
+    } 
 
     public override void Start()
     {
@@ -33,15 +36,23 @@ namespace Echo.Entity
     }
 
 
-    public new void Move(float move, bool crouch, bool jump)
+    public new void Move(float move, bool crouch, bool jump, bool dash_right)
     {
-      base.Move(move, crouch, jump);
+      base.Move(move, crouch, jump, dash_right);
 
       //Reset air jump if player touches ground
       if (m_Grounded)
        {
         m_DoubleJump = true;
        }
+
+      //Reset dash if it has been 150 ms since last dash
+      if (m_DashWaitTimer.ElapsedMilliseconds >= 150)
+      {
+         m_CanDash = true;
+         m_DashWaitTimer.Stop();
+         m_DashWaitTimer.Reset();
+      }
 
       // If the player should jump...
       if (m_Grounded && jump && m_Anim.GetBool("Ground"))
@@ -50,6 +61,7 @@ namespace Echo.Entity
         m_Grounded = false;
         Jump();
         m_DoubleJumpWaitTimer.Start();
+                Debug.Log("Only once?");
       }
       //Allow for a second jump
       else if (m_DoubleJump && jump && !m_Grounded)
@@ -68,6 +80,15 @@ namespace Echo.Entity
             m_DoubleJumpWaitTimer.Stop();
             m_DoubleJumpWaitTimer.Reset();
         }
+      }
+
+      // If the player should dash...
+      if(dash_right && m_CanDash)
+      {
+        m_CanDash = false;
+        m_DashWaitTimer.Start();
+        DashRight();
+                Debug.Log("Hey wait a sec");
       }
     }
 

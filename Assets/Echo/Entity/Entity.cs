@@ -15,6 +15,7 @@ namespace Echo.Entity
     [SerializeField] public float m_RunSpeed = 10f;
     [SerializeField] public float m_WalkSpeed = 5f;
 
+
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     protected Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
     protected Rigidbody2D m_Rigidbody2D;
@@ -24,7 +25,9 @@ namespace Echo.Entity
 
     protected bool m_Grounded;            // Whether or not the player is grounded.
     protected bool m_FacingRight = true;  // For determining which way the player is currently facing.
-    [Range(0, 5000)] [SerializeField] protected float m_JumpForce = 800; //Acceleration of the object in m/s^2
+    protected bool m_Dashing = false;     // True if the player has initiated a dash
+    [Range(0, 5000)] [SerializeField] protected float m_JumpForce = 800; //Acceleration of the object in m/s^2 (jump)
+    [Range(0, 5000)] [SerializeField] protected float m_DashForce = 2500; //Acceleration of the object in m/s^2 (dash)
     [Range(10, 200)] [SerializeField] protected int m_Mass = 70; //Mass of the object in kg
 
     public bool crouch
@@ -96,8 +99,8 @@ namespace Echo.Entity
       m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
     }
 
-    public void Move(float move, bool _crouch, bool jump)
-    {
+    public void Move(float move, bool _crouch, bool jump, bool dash_right)
+    {       
       // If crouching, check to see if the character can stand up
       if (!_crouch && m_Anim.GetBool("Crouch"))
       {
@@ -200,6 +203,14 @@ namespace Echo.Entity
     {
       m_Anim.SetBool("Ground", false);
       m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * multiplier));
+            Debug.Log("Jumping?");
+    }
+
+    //Dash right
+    public void DashRight()
+    {
+      m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0));
+     //       Debug.Log("SET DASH TIMER");
     }
 
     public virtual void Flip()
