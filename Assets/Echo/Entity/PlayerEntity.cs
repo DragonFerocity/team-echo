@@ -75,5 +75,14 @@ namespace Echo.Entity
     {
       //throw new NotImplementedException();
     }
-  }
+
+        // Used for Item Pickups
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Pickup"))
+            {
+                other.gameObject.SetActive(false);
+            }
+        }
+    }
 }
