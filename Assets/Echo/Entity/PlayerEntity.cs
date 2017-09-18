@@ -66,8 +66,6 @@ namespace Echo.Entity
       }
 
 
-
-
       // If the player should jump...
       if (m_Grounded && jump && m_Anim.GetBool("Ground"))
       {
@@ -75,7 +73,6 @@ namespace Echo.Entity
         m_Grounded = false;
         Jump();
         m_DoubleJumpWaitTimer.Start();
-                Debug.Log("Only once?");
       }
       //Allow for a second jump
       else if (m_DoubleJump && jump && !m_Grounded)
@@ -107,7 +104,7 @@ namespace Echo.Entity
         m_DashingLeft = true;
         m_DashWaitTimer.Start();
       }
-        }
+    }
 
     public override void Attack()
     {

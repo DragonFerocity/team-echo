@@ -12,6 +12,7 @@ namespace Echo.Entity
         private bool m_Jump;
         private bool dashRight;
         private bool dashLeft;
+        private bool crouch;
 
 
         private void Awake()
@@ -54,9 +55,9 @@ namespace Echo.Entity
     private void FixedUpdate()
     {
       // Read the inputs.
-      bool crouch = Input.GetKey(KeyCode.LeftControl);
-      dashRight = CrossPlatformInputManager.GetButtonDown("DashRight");/*Input.GetKey(KeyCode.E);*/
+      dashRight = CrossPlatformInputManager.GetButtonDown("DashRight");
       dashLeft = CrossPlatformInputManager.GetButtonDown("DashLeft");
+      crouch = CrossPlatformInputManager.GetButton("Crouch");
       float h = CrossPlatformInputManager.GetAxis("Horizontal");
       // Pass all parameters to the character control script.
       m_Character.Move(h * m_Character.m_RunSpeed, crouch, m_Jump, dashRight, dashLeft);
