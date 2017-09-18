@@ -17,8 +17,10 @@ namespace Echo.Entity
 
 
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+    const float k_WallCheckRadius = 0.6f; // Radius of the overlap circle to determine if wall is touching the player
     protected Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
-    protected Rigidbody2D m_Rigidbody2D;
+    public Rigidbody2D m_Rigidbody2D;
+    public Renderer m_Renderer2D;
     protected Animator m_Anim; // Reference to the player's animator component.
     protected Transform m_CeilingCheck;   // A position marking where to check for ceilings
     protected const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
@@ -28,7 +30,7 @@ namespace Echo.Entity
     protected bool m_Dashing = false;     // True if the player has initiated a dash
     [Range(0, 5000)] [SerializeField] protected float m_JumpForce = 800; //Acceleration of the object in m/s^2 (jump)
     [Range(0, 5000)] [SerializeField] protected float m_DashForce = 800; //Acceleration of the object in m/s^2 (dash)
-    [Range(10, 200)] [SerializeField] protected int m_Mass = 70; //Mass of the object in kg
+
 
     public bool crouch
     {
@@ -74,7 +76,7 @@ namespace Echo.Entity
     {
       // Setting up references.
       m_Rigidbody2D = GetComponent<Rigidbody2D>();
-      //m_Rigidbody2D.mass = m_Mass;
+      m_Renderer2D = GetComponent<Renderer>();
       m_Anim = GetComponent<Animator>();
       m_GroundCheck = transform.Find("GroundCheck");
       m_CeilingCheck = transform.Find("CeilingCheck");
@@ -102,7 +104,7 @@ namespace Echo.Entity
     public void Move(float move, bool _crouch, bool jump, bool dash_right, bool walk = false)
     {
       if (walk)
-        m_Anim.speed = 0.5f;
+        m_Anim.speed = m_WalkSpeed / m_RunSpeed;
       // If crouching, check to see if the character can stand up
       if (!_crouch && m_Anim.GetBool("Crouch"))
       {
@@ -222,6 +224,63 @@ namespace Echo.Entity
       Vector3 theScale = transform.localScale;
       theScale.x *= -1;
       transform.localScale = theScale;
+    }
+
+    protected virtual bool isGroundInFrontOf(float distance = 0.5f)
+    {
+      if (facing == Direction.LEFT)
+      {
+        Vector3 newPos = new Vector3(m_GroundCheck.position.x - distance, m_GroundCheck.position.y, m_GroundCheck.position.z);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(newPos, k_GroundedRadius, m_WhatIsGround);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+          if (colliders[i].gameObject != gameObject)
+          {
+            return true;
+          }
+        }
+      }
+      else if (facing == Direction.RIGHT)
+      {
+        Vector3 newPos = new Vector3(m_GroundCheck.position.x + distance, m_GroundCheck.position.y, m_GroundCheck.position.z);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(newPos, k_GroundedRadius, m_WhatIsGround);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+          if (colliders[i].gameObject != gameObject)
+          {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+    protected virtual bool isWallInFrontOf(float distance = 0.5f)
+    {
+      if (facing == Direction.LEFT)
+      {
+        Vector3 newPos = new Vector3(m_Rigidbody2D.position.x - distance, m_Rigidbody2D.position.y, 0);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(newPos, k_WallCheckRadius, m_WhatIsGround);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+          if (colliders[i].gameObject != gameObject)
+          {
+            return true;
+          }
+        }
+      }
+      else if (facing == Direction.RIGHT)
+      {
+        Vector3 newPos = new Vector3(m_Rigidbody2D.position.x + distance, m_Rigidbody2D.position.y, 0);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(newPos, k_WallCheckRadius, m_WhatIsGround);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+          if (colliders[i].gameObject != gameObject)
+          {
+            return true;
+          }
+        }
+      }
+      return false;
     }
 
     public enum Direction : byte

@@ -8,8 +8,14 @@ namespace Echo.Entity
 {
   public class EnemyEntity : Entity
   {
-    public new float m_WalkSpeed = 1f;
-    public new float m_RunSpeed = 6f;
+    public Point.Point initialPosition;
+    [Range(0, 100)] [SerializeField] private int idleDistance = 6;
+    [Range(0, 100)] [SerializeField] private int idleDistanceVariability = 3;
+    [Range(0, 100)] [SerializeField] private int engageDistance = 6;
+    [Range(0, 100)] [SerializeField] private int disengageDistance = 12;
+    private System.Random randomIdleDist = new System.Random();
+    private int nextRandomDist;
+
     private System.Diagnostics.Stopwatch IdleStopWatch = new System.Diagnostics.Stopwatch();
     public override void Awake()
     {
@@ -20,7 +26,10 @@ namespace Echo.Entity
     }
     public override void Start()
     {
+      initialPosition = new Point.Point(this.m_Rigidbody2D.position.x, this.m_Rigidbody2D.position.y);
       CurrentState = Behaviors.IDLE;
+      string t = m_Rigidbody2D.transform.parent.parent.name;
+      nextRandomDist = generateNextRandomIdleDistance();
     }
     public new void FixedUpdate()
     {
@@ -29,38 +38,53 @@ namespace Echo.Entity
       switch (CurrentState)
       {
         case Behaviors.IDLE:
-          PreviousState = CurrentState;
-          CurrentState = Behaviors.IDLE;
           Idle();
-          if (IdleStopWatch.ElapsedMilliseconds >= 2000)
+          if ((this.facing == Direction.RIGHT && initialPosition.distanceTo(m_Rigidbody2D.position).x >= idleDistance + nextRandomDist)
+            || !isGroundInFrontOf() || isWallInFrontOf()
+            || IdleStopWatch.ElapsedMilliseconds >= 12000)
           {
             this.Flip();
             IdleStopWatch.Reset();
             IdleStopWatch.Start();
+            nextRandomDist = generateNextRandomIdleDistance();
+          }
+          else if ((this.facing == Direction.LEFT && initialPosition.distanceTo(m_Rigidbody2D.position).x <= -idleDistance - nextRandomDist) 
+            || !isGroundInFrontOf() || isWallInFrontOf()
+            || IdleStopWatch.ElapsedMilliseconds >= 12000)
+          {
+            this.Flip();
+            IdleStopWatch.Reset();
+            IdleStopWatch.Start();
+            nextRandomDist = generateNextRandomIdleDistance();
           }
           else if (!IdleStopWatch.IsRunning)
             IdleStopWatch.Start();
-          if (this.getAbsoluteDistanceToEntity(Platformer2DUserControl.m_Character) < 2)
-            CurrentState = Behaviors.MOVE_TO_PLAYER;
+          if (this.getAbsoluteDistanceToEntity(Platformer2DUserControl.m_Character) < engageDistance)
+            setNewState(Behaviors.MOVE_TO_PLAYER);
 
           break;
         case Behaviors.MOVE_TO_PLAYER:
           //LOGIC
-          PreviousState = CurrentState;
-          CurrentState = Behaviors.MOVE_TO_PLAYER;
           MoveToPlayer();
+          if (this.getAbsoluteDistanceToEntity(Platformer2DUserControl.m_Character) > disengageDistance)
+          {
+            setNewState(Behaviors.IDLE);
+          }
           break;
         case Behaviors.ATTACK:
           //LOGIC
-          PreviousState = CurrentState;
-          CurrentState = Behaviors.ATTACK;
           Attack();
           break;
         default:
-          PreviousState = CurrentState;
-          CurrentState = Behaviors.NULL;
+          setNewState(Behaviors.NULL);
+          throw new Exception("WTF? Daniel T. Holtzclaw should fix this....");
           break;
       }
+    }
+
+    private int generateNextRandomIdleDistance()
+    {
+      return randomIdleDist.Next(idleDistanceVariability*2) - idleDistanceVariability;
     }
 
     public virtual void MoveToPlayer()
@@ -81,6 +105,12 @@ namespace Echo.Entity
 
     public Behaviors CurrentState = Behaviors.NULL;
     public Behaviors PreviousState = Behaviors.NULL;
+
+    private void setNewState(Behaviors newState)
+    {
+      PreviousState = CurrentState;
+      CurrentState = newState;
+    }
 
   }
 }

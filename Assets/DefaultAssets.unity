@@ -299,11 +299,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.81
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -38.86
+      value: -39.46
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.z
@@ -475,11 +475,14 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_Rigidbody2D: {fileID: 0}
+  m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
   m_DashForce: 2500
-  m_Mass: 70
-  m_WalkSpeed: 10
-  m_RunSpeed: 6
+  idleDistance: 5
+  idleDistanceVariability: 3
+  engageDistance: 6
+  disengageDistance: 12
   CurrentState: 0
   PreviousState: 0
 --- !u!114 &68673526
@@ -2912,11 +2915,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 151.9
+      value: 127.42
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.6000004
+      value: -4.06
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3788,11 +3791,14 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_Rigidbody2D: {fileID: 0}
+  m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
   m_DashForce: 2500
-  m_Mass: 70
-  m_WalkSpeed: 10
-  m_RunSpeed: 6
+  idleDistance: 5
+  idleDistanceVariability: 3
+  engageDistance: 6
+  disengageDistance: 12
   CurrentState: 0
   PreviousState: 0
 --- !u!114 &1216008785
@@ -3923,13 +3929,16 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_AirControl: 1
   m_CrouchSpeed: 0.36
-  m_RunSpeed: 10
-  m_WalkSpeed: 10
+  m_RunSpeed: 6
+  m_WalkSpeed: 3
+  m_Rigidbody2D: {fileID: 0}
+  m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
   m_DashForce: 2500
-  m_Mass: 70
-  m_WalkSpeed: 10
-  m_RunSpeed: 6
+  idleDistance: 5
+  idleDistanceVariability: 2
+  engageDistance: 6
+  disengageDistance: 12
   CurrentState: 0
   PreviousState: 0
 --- !u!4 &1242717851 stripped
@@ -5004,11 +5013,14 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_Rigidbody2D: {fileID: 0}
+  m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
   m_DashForce: 2500
-  m_Mass: 70
-  m_WalkSpeed: 10
-  m_RunSpeed: 6
+  idleDistance: 5
+  idleDistanceVariability: 3
+  engageDistance: 6
+  disengageDistance: 12
   CurrentState: 0
   PreviousState: 0
 --- !u!4 &1525838802 stripped
@@ -5032,14 +5044,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967007
   m_AirControl: 1
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_Rigidbody2D: {fileID: 0}
+  m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
   m_DashForce: 2500
-  m_Mass: 70
 --- !u!114 &1535535152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5088,11 +5101,14 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_Rigidbody2D: {fileID: 0}
+  m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
   m_DashForce: 2500
-  m_Mass: 70
-  m_WalkSpeed: 10
-  m_RunSpeed: 6
+  idleDistance: 5
+  idleDistanceVariability: 3
+  engageDistance: 6
+  disengageDistance: 12
   CurrentState: 0
   PreviousState: 0
 --- !u!1 &1560513199
@@ -5411,7 +5427,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1715979142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.982525, y: 5.682968, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2138410335}
@@ -5764,7 +5780,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1920195897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7, y: -19.272976, z: 0}
+  m_LocalPosition: {x: 0, y: -20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 327184846}
