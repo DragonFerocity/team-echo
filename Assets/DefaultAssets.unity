@@ -146,7 +146,6 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10085932}
   m_Text: 'Press Q to Left Dash
-
     Press E to Right Dash'
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -595,8 +594,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53d9de92fecb1d43bafe0d9416f2b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -620,8 +619,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686d1e396f131fe42820bc917f101b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &77195868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1478,6 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 290360934}
   m_Text: 'Free
-
     Pickup'
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -1705,7 +1703,6 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 358012990}
   m_Text: 'Free
-
     Pickup'
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -1892,7 +1889,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalScale.x
@@ -1939,7 +1936,6 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 370238325}
   m_Text: 'Free
-
     Pickup'
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -2039,7 +2035,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
@@ -2101,7 +2097,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalScale.x
@@ -2600,8 +2596,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6743eb7376f8cf40bc64cdc0d726964, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   warpTarget: {fileID: 552839073}
 --- !u!61 &491842608
 BoxCollider2D:
@@ -3381,8 +3377,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d8238cc53530b64fbb7828c3d3bb591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   target: {fileID: 46417692}
   damping: 0.3
   lookAheadFactor: 1.5
@@ -3593,7 +3589,6 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 762557435}
   m_Text: 'Press Lctrl
-
     to crouch'
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -3923,7 +3918,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalScale.x
@@ -4039,8 +4034,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6743eb7376f8cf40bc64cdc0d726964, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   warpTarget: {fileID: 1747929364}
 --- !u!1001 &815166467
 Prefab:
@@ -4095,7 +4090,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Name
@@ -4130,9 +4125,7 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 815366932}
   m_Text: 'Defeat the
-
     enemies to
-
     proceed'
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -4380,7 +4373,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalScale.x
@@ -4887,8 +4880,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686d1e396f131fe42820bc917f101b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1154257360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4898,8 +4891,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53d9de92fecb1d43bafe0d9416f2b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -4952,7 +4945,6 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1157430202}
   m_Text: 'Free
-
     Pickup'
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -5273,7 +5265,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
@@ -5391,8 +5383,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686d1e396f131fe42820bc917f101b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1195070211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5402,8 +5394,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53d9de92fecb1d43bafe0d9416f2b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5471,7 +5463,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalScale.x
@@ -5497,8 +5489,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53d9de92fecb1d43bafe0d9416f2b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5522,8 +5514,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686d1e396f131fe42820bc917f101b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &1222006830
 GameObject:
   m_ObjectHideFlags: 0
@@ -5634,8 +5626,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53d9de92fecb1d43bafe0d9416f2b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5663,8 +5655,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686d1e396f131fe42820bc917f101b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1001 &1289406556
 Prefab:
   m_ObjectHideFlags: 0
@@ -5718,7 +5710,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalScale.x
@@ -5921,7 +5913,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalScale.x
@@ -6188,7 +6180,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     - target: {fileID: 400000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_LocalScale.x
@@ -6222,9 +6214,7 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1399476410}
   m_Text: 'Press Space in
-
     air to Air Jump
-
 '
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -6505,8 +6495,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686d1e396f131fe42820bc917f101b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1409337331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6516,8 +6506,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53d9de92fecb1d43bafe0d9416f2b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -6779,7 +6769,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18fcd494ab71841d695135246693eb3a, type: 2}
@@ -7065,8 +7055,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686d1e396f131fe42820bc917f101b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1525838797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7076,8 +7066,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53d9de92fecb1d43bafe0d9416f2b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -7109,8 +7099,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0cd381e2f1bd704abeb5853bf3193b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -7130,8 +7120,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 572e94f686fc6a54ebb777b2064f8a11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &1557935375 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
@@ -7149,8 +7139,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686d1e396f131fe42820bc917f101b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1557935378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7160,8 +7150,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53d9de92fecb1d43bafe0d9416f2b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -7201,7 +7191,6 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1560513199}
   m_Text: 'Tutorial
-
     Complete'
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -7411,7 +7400,6 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1688097812}
   m_Text: 'Free
-
     Pickup'
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -8589,7 +8577,6 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1999829201}
   m_Text: 'Press ___ to Attack
-
     Press ___ to Special Attack'
   m_OffsetZ: 0
   m_CharacterSize: 1
