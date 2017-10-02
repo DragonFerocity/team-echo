@@ -40,7 +40,7 @@ namespace Echo.Entity
     public new void Move(float move, bool crouch, bool jump, bool dash_right, bool dash_left)
     {
       base.Move(move, crouch, jump, dash_right);
-
+      
       //Reset air jump if player touches ground
       if (m_Grounded)
        {
