@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -19,6 +19,7 @@ public class UIControls : MonoBehaviour {
         inGameMenu.enabled = false;
 	}
 	
+
 	// Update is called once per frame
 	void Update () {
         if (CrossPlatformInputManager.GetButtonDown("Main Menu"))
@@ -26,7 +27,5 @@ public class UIControls : MonoBehaviour {
             inGameMenu.enabled = !inGameMenu.enabled;
 
         }
-
-
     }
 }
