@@ -32,3 +32,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/DefaultAssets.unity
+*.cs
+Assets/Echo/Entity/PlayerEntity.cs
+Assets/DefaultAssets.unity
+Assets/Echo/Entity/Entity.cs
+Assets/Echo/Entity/PlayerEntity.cs
