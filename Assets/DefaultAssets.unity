@@ -1340,6 +1340,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -1412,6 +1413,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -1466,6 +1468,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -1513,6 +1516,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -6062,6 +6066,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -8226,6 +8231,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -8366,6 +8372,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -9179,6 +9186,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -10251,6 +10259,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -10305,6 +10314,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -13350,6 +13360,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -13744,6 +13755,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -15196,6 +15208,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -18043,6 +18056,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -19076,6 +19090,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -19209,6 +19224,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -19543,6 +19559,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -21906,6 +21923,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -22663,6 +22681,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -23237,6 +23256,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -23377,6 +23397,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -23523,6 +23544,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -23663,6 +23685,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -24003,6 +24026,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -24046,10 +24070,12 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
   m_DashForce: 2500
+  distance: 0.3
 --- !u!114 &1535535152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24389,6 +24415,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -24711,6 +24738,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -29924,6 +29952,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -31017,6 +31046,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -31641,6 +31671,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -32079,6 +32110,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
@@ -32609,6 +32641,7 @@ MonoBehaviour:
   m_CrouchSpeed: 0.36
   m_RunSpeed: 10
   m_WalkSpeed: 10
+  m_IsFlying: 0
   m_Rigidbody2D: {fileID: 0}
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
