@@ -23,7 +23,7 @@ namespace Echo.Entity
         private bool m_WallJumpRight = false; //Hit a wall while traveling left, therefore jump right
         private bool m_WallJumpLeft = false; //Hit a wall while traveling right, therefore jump left
         private System.Diagnostics.Stopwatch m_WallJumpTimer = new System.Diagnostics.Stopwatch();
-        public float distance = 5f;
+        public float distance = 0.3f;
         private float HorizontalWallVelocity = 0;
 
 
