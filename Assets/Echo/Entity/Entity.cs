@@ -14,6 +14,7 @@ namespace Echo.Entity
     [Range(0, 1)] [SerializeField] protected float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [SerializeField] public float m_RunSpeed = 10f;
     [SerializeField] public float m_WalkSpeed = 5f;
+    [SerializeField] public bool m_IsFlying = false;
 
 
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -100,7 +101,12 @@ namespace Echo.Entity
       m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
     }
 
-    public void Move(float move, bool _crouch, bool jump, bool dash_right, bool walk = false)
+    public virtual void Update()
+    {
+
+    }
+
+    public virtual void Move(float move, bool _crouch, bool jump, bool dash_right, bool walk = false)
     {
       if (walk)
         m_Anim.speed = m_WalkSpeed / m_RunSpeed;
@@ -118,7 +124,7 @@ namespace Echo.Entity
       this.crouch = _crouch;
 
       //only control the player if grounded or airControl is turned on
-      if (m_Grounded || m_AirControl)
+      if (m_IsFlying || m_Grounded || m_AirControl)
       {
         // Reduce the speed if crouching by the crouchSpeed multiplier
         move = (crouch ? move * m_CrouchSpeed : move);
@@ -127,7 +133,7 @@ namespace Echo.Entity
         m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
         // Move the character
-        m_Rigidbody2D.velocity = new Vector2(move, m_Rigidbody2D.velocity.y);
+        m_Rigidbody2D.velocity = new Vector2(move, (m_IsFlying ? 0 : m_Rigidbody2D.velocity.y));
 
         // If the input is moving the player right and the player is facing left...
         if (move > 0 && !m_FacingRight)
@@ -227,31 +233,36 @@ namespace Echo.Entity
 
     protected virtual bool isGroundInFrontOf(float distance = 0.5f)
     {
-      if (facing == Direction.LEFT)
+      if (!m_IsFlying)
       {
-        Vector3 newPos = new Vector3(m_GroundCheck.position.x - distance, m_GroundCheck.position.y, m_GroundCheck.position.z);
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(newPos, k_GroundedRadius, m_WhatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
+        if (facing == Direction.LEFT)
         {
-          if (colliders[i].gameObject != gameObject)
+          Vector3 newPos = new Vector3(m_GroundCheck.position.x - distance, m_GroundCheck.position.y, m_GroundCheck.position.z);
+          Collider2D[] colliders = Physics2D.OverlapCircleAll(newPos, k_GroundedRadius, m_WhatIsGround);
+          for (int i = 0; i < colliders.Length; i++)
           {
-            return true;
+            if (colliders[i].gameObject != gameObject)
+            {
+              return true;
+            }
           }
         }
-      }
-      else if (facing == Direction.RIGHT)
-      {
-        Vector3 newPos = new Vector3(m_GroundCheck.position.x + distance, m_GroundCheck.position.y, m_GroundCheck.position.z);
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(newPos, k_GroundedRadius, m_WhatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
+        else if (facing == Direction.RIGHT)
         {
-          if (colliders[i].gameObject != gameObject)
+          Vector3 newPos = new Vector3(m_GroundCheck.position.x + distance, m_GroundCheck.position.y, m_GroundCheck.position.z);
+          Collider2D[] colliders = Physics2D.OverlapCircleAll(newPos, k_GroundedRadius, m_WhatIsGround);
+          for (int i = 0; i < colliders.Length; i++)
           {
-            return true;
+            if (colliders[i].gameObject != gameObject)
+            {
+              return true;
+            }
           }
         }
+        return false;
       }
-      return false;
+      else
+        return true;
     }
     protected virtual bool isWallInFrontOf(float distance = 0.5f)
     {
