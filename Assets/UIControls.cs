@@ -34,6 +34,38 @@ public class UIControls : MonoBehaviour {
         inGameLevelsMenu.enabled = false;
         inGameMainMenu.enabled = true;
     }
+    //Vector3(-24, -189, 0); level1
+    //Vector3(-24, -148, 0); tutorial
+    public void TeleportToTutorial(Transform t)
+    {
+        t.position = new Vector3(-24, -148, 0);
+    }
+    public void TeleportToTesting(Transform t)
+    {
+        t.position = new Vector3(83, -107, 0);
+    }
+    public void TeleportToNexus(Transform t)
+    {
+        t.position = new Vector3(-24, -107, 0);
+    }
+    public void TeleportToLevel1(Transform t)
+   {
+        t.position = new Vector3(-24, -189, 0);
+    }
+    public void TeleportToLevel2(Transform t)
+    {
+        t.position = new Vector3(38, -270, 0);
+    }
+    public void TeleportToLevel3(Transform t)
+    {
+        t.position = new Vector3(-24, -107, 0);
+    }
+    public void TeleportToLevel4(Transform t)
+    {
+        t.position = new Vector3(-24, -107, 0);
+    }
+
+
 
 
     // Update is called once per frame
