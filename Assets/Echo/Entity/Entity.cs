@@ -124,7 +124,7 @@ namespace Echo.Entity
       this.crouch = _crouch;
 
       //only control the player if grounded or airControl is turned on
-      if (m_IsFlying || m_Grounded || m_AirControl)
+      if ((m_Grounded || m_AirControl || m_IsFlying) && this.tag != "Player")
       {
         // Reduce the speed if crouching by the crouchSpeed multiplier
         move = (crouch ? move * m_CrouchSpeed : move);
@@ -213,12 +213,6 @@ namespace Echo.Entity
       m_Anim.SetBool("Ground", false);
       m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * multiplier));
     }
-
-    //Dash right
-    /*public void DashRight()
-    {
-      m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0));
-    }*/
 
     public virtual void Flip()
     {
