@@ -23946,6 +23946,7 @@ MonoBehaviour:
   m_Renderer2D: {fileID: 0}
   m_JumpForce: 800
   m_DashForce: 2500
+  distance: 0.3
 --- !u!114 &1535535152
 MonoBehaviour:
   m_ObjectHideFlags: 0
