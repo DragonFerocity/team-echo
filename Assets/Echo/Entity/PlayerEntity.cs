@@ -120,14 +120,23 @@ namespace Echo.Entity
                 m_DashWaitTimer.Stop();
                 m_DashWaitTimer.Reset();
             }
-            else if ((m_DashWaitTimer.ElapsedMilliseconds > 150) && !m_EndDash)
+            else if ((m_DashWaitTimer.ElapsedMilliseconds > 150))
             {
-                m_Rigidbody2D.velocity = new Vector2(0, 0);
+                m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
+
+            }
+
+            //Set so we know we can take other actions now (although not necessarily dashing if in the air)
+            if (m_DashWaitTimer.ElapsedMilliseconds > 150 || m_Grounded)
+            {
                 m_EndDash = true;
             }
 
+            Debug.Log("End Dash:");
+            Debug.Log(m_EndDash);
+
             // If the player should jump...
-            if (m_Grounded && jump && m_Anim.GetBool("Ground"))
+            if (m_Grounded && jump && m_Anim.GetBool("Ground") && !m_WallJumpLeft && !m_WallJumpRight)
             {
                 // Add a vertical force to the player.
                 m_Grounded = false;
@@ -137,11 +146,7 @@ namespace Echo.Entity
             //Allow for a second jump
             else if (m_DoubleJump && jump && !m_Grounded && !m_WallJumpLeft && !m_WallJumpRight && m_EndDash)
             {
-                if (m_FromGround && m_DoubleJumpWaitTimer.ElapsedMilliseconds <= 100)
-                {
-                    //do nothing
-                }
-                else
+                if (!m_FromGround && m_DoubleJumpWaitTimer.ElapsedMilliseconds >= 100)
                 {
                     m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
                     Jump();
@@ -150,7 +155,19 @@ namespace Echo.Entity
                     m_DoubleJumpWait = 0;
                     m_DoubleJumpWaitTimer.Stop();
                     m_DoubleJumpWaitTimer.Reset();
+                    //do nothing
                 }
+                /*else
+                {
+                    Debug.Log("What?");
+                    m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+                    Jump();
+                    m_DoubleJump = false;
+                    m_FromGround = false;
+                    m_DoubleJumpWait = 0;
+                    m_DoubleJumpWaitTimer.Stop();
+                    m_DoubleJumpWaitTimer.Reset();
+                }*/
             }
 
 
