@@ -64,6 +64,10 @@ public class UIControls : MonoBehaviour {
     {
         t.position = new Vector3(-24, -107, 0);
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 
 
 
